@@ -5,15 +5,15 @@
         Console.Write("Введите число: ");
         string userInput = Console.ReadLine();
 
-        FindNumber(userInput, out int number);
+        int number = ReturnNumber(userInput);
 
         Console.WriteLine("Конвертация удалась. Ваше число - " + number);
     }
 
-    static void FindNumber(string userInput, out int number)
+    static int ReturnNumber(string userInput)
     {
         bool isWorking = true;
-        number = 0;
+        int number = 0;
 
         while (isWorking)
         {
@@ -29,5 +29,7 @@
                 isWorking = false;
             }
         }
+        
+        return number;
     }
 }
