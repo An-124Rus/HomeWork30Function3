@@ -2,34 +2,22 @@
 {
     private static void Main(string[] args)
     {
-        Console.Write("Введите число: ");
-        string userInput = Console.ReadLine();
-
-        int number = ReturnNumber(userInput);
+        int number = ReturnNumber();
 
         Console.WriteLine("Конвертация удалась. Ваше число - " + number);
     }
 
-    static int ReturnNumber(string userInput)
+    static int ReturnNumber()
     {
-        bool isWorking = true;
-        int number = 0;
+        int number;
+        string userInput;
 
-        while (isWorking)
+        do
         {
-            int.TryParse(userInput, out number);
+            Console.Write("Введите целое число: ");
+            userInput = Console.ReadLine();
+        } while (int.TryParse(userInput, out number) == false);
 
-            if (number == 0)
-            {
-                Console.Write("Конвертация не удалась или введено неверное чиcло. Введите число снова: ");
-                userInput = Console.ReadLine();
-            }
-            else
-            {
-                isWorking = false;
-            }
-        }
-        
         return number;
     }
 }
